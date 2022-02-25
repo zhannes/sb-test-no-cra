@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
+//import Button from "@mui/material/Button";
+import { Button } from "@material-ui/core";
 
-// const dynamicallyImportModule = () => import(
-//   /* webpackChunkName: "toBeImportedDynamically" */
-//   "./toBeImportedDynamically"
-// );
-
-// const CommonButton = React.lazy(
-//   () => import('common_ui/Button')
-// );
+export function MyButton({ children, ...props }) {
+  return (
+    <Button variant="contained" {...props}>
+      {children}
+    </Button>
+  );
+}
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -17,10 +18,7 @@ function App() {
   };
   return (
     <>
-      <h1>Team 1</h1>
-      <button onClick={onClick}>
-        {toggle ? 'Clicked' : 'Click Me'}
-      </button>
+      <MyButton onClick={onClick}>{toggle ? "Clicked" : "Click Me"}</MyButton>
     </>
   );
 }
