@@ -33,6 +33,7 @@ export function MyButton({ children, ...props }) {
   return (
     <Button variant="contained" {...props}>
       {children}
+      <span>span</span>
     </Button>
   );
 }
