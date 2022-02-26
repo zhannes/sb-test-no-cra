@@ -5,6 +5,30 @@ import Button from "@mui/material/Button";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
 
+export const theme = {
+  components: {
+    // Name of the component
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          backgroundColor: "white",
+          color: "red",
+          borderWidth: "1px",
+          borderColor: "#000",
+        },
+      },
+    },
+  },
+};
+
+const defaultTheme = createTheme(theme); // or your custom theme
+
+export const ThemeProviderComponent = ({ children }) => {
+  return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
+};
+
 export function MyButton({ children, ...props }) {
   return (
     <Button variant="contained" {...props}>
@@ -19,9 +43,9 @@ function App() {
     setToggle(!toggle);
   };
   return (
-    <>
+    <ThemeProviderComponent>
       <MyButton onClick={onClick}>{toggle ? "Clicked" : "Click Me"}</MyButton>
-    </>
+    </ThemeProviderComponent>
   );
 }
 
