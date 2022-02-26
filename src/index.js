@@ -13,7 +13,7 @@ export const theme = {
         // Name of the slot
         root: {
           // Some CSS
-          backgroundColor: "white",
+          backgroundColor: "grey",
           color: "red",
           borderWidth: "1px",
           borderColor: "#000",
