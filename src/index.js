@@ -15,7 +15,7 @@ export const theme = {
           backgroundColor: "#fff",
           color: "red",
           borderWidth: "1px",
-          borderColor: "#000",
+          borderColor: "blue",
         },
       },
     },
@@ -30,9 +30,8 @@ export const ThemeProviderComponent = ({ children }) => {
 
 export function MyButton({ children, ...props }) {
   return (
-    <Button variant="contained" {...props}>
+    <Button variant="outlined" {...props}>
       {children}
-      <span>span</span>
     </Button>
   );
 }
